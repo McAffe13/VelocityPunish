@@ -1,0 +1,157 @@
+{
+  "database": {
+    "enabled": false,
+    "host": "localhost",
+    "port": 3306,
+    "database": "punishsystem",
+    "username": "root",
+    "password": "",
+    "maxPoolSize": 10,
+    "tablePrefix": ""
+  },
+
+  "network": {
+    "name": "YourNetwork",
+    "nameFormatted": "§6§lYourNetwork",
+    "prefix": "§8[§6PunishSystem§8] §7",
+    "websiteUrl": "your-server.net",
+    "unbanUrl": "your-server.net/appeal",
+    "discordUrl": "discord.your-server.net",
+    "unbanMethod": "discord"
+  },
+
+  "permissions": {
+    "ban": "punishsystem.ban",
+    "tempban": "punishsystem.tempban",
+    "unban": "punishsystem.unban",
+    "ipban": "punishsystem.ipban",
+    "history": "punishsystem.history",
+    "check": "punishsystem.check",
+    "kick": "punishsystem.kick",
+    "punish": "punishsystem.punish",
+    "unpunish": "punishsystem.unpunish",
+    "reload": "punishsystem.reload",
+    "notify": "punishsystem.notify",
+    "bypass": "punishsystem.bypass",
+    "vpnBypass": "punishsystem.vpn.bypass",
+    "lookup": "punishsystem.lookup",
+    "warn": "punishsystem.warn",
+    "clearWarnings": "punishsystem.clearwarnings"
+  },
+
+  "vpn": {
+    "enabled": false,
+    "kickOnDetect": true,
+    "apiUrl": "http://ip-api.com/json/{ip}?fields=status,message,proxy,hosting,isp,countryCode",
+    "cacheExpireMinutes": 60,
+    "whitelistedISPs": []
+  },
+
+  "webhooks": {
+    "enabled": false,
+    "ban": "",
+    "tempban": "",
+    "unban": "",
+    "kick": "",
+    "vpn": "",
+    "warn": ""
+  },
+
+  "messages": {
+    "banScreen": "§4§lBanned!\n\n§7Reason: §c{reason}\n§7Ban-ID: §e{id}\n\n§7Appeal at: §a{discord_url}\n§7Network: §e{network}",
+    "tempBanScreen": "§6§lTemporarily Banned!\n\n§7Reason: §c{reason}\n§7Duration: §e{duration}\n§7Expires: §e{expire}\n§7Ban-ID: §e{id}\n\n§7Network: §e{network}",
+    "ipBanScreen": "§4§lYour IP is banned!\n\n§7Reason: §c{reason}\n§7Ban-ID: §e{id}\n\n§7Appeal at: §a{discord_url}\n§7Network: §e{network}",
+    "networkBanScreen": "§4§lNetwork Ban!\n\n§7Reason: §c{reason}\n§7ID: §e{id}\n\n§7Appeal at: §a{discord_url}\n§7Network: §e{network}",
+    "vpnKickScreen": "§4§lVPN / Proxy detected!\n\n§7VPNs and proxies are not allowed on §e{network}§7.\n§7Please disable your VPN and try again.\n\n§7More info: §a{discord_url}",
+    "kickScreen": "§e§lKicked!\n\n§7Reason: §c{reason}\n\n§7Network: §e{network}",
+    "multiAccountScreen": "§4§lMulti-Account blocked!\n\n§7Your account is linked to a banned account.\n§7Banned account: §c{banned_player}\n§7Reason: §c{reason}\n\n§7Appeal at: §a{discord_url}\n§7Network: §e{network}",
+
+    "banSuccess": "§aPlayer §e{player} §ahas been permanently banned. §7(ID: §e{id}§7)",
+    "tempBanSuccess": "§aPlayer §e{player} §ahas been banned for §e{duration}§a. §7(ID: §e{id}§7)",
+    "kickSuccess": "§aPlayer §e{player} §ahas been kicked.",
+    "ipBanSuccess": "§aIP §e{ip} §ahas been banned. §7(ID: §e{id}§7)",
+    "networkBanSuccess": "§aPlayer §e{player} §ahas received a permanent network ban. §7(ID: §e{id}§7)",
+    "unbanSuccess": "§aPlayer §e{player} §ahas been unbanned.",
+
+    "alreadyBanned": "§cThis player is already banned!",
+    "notBanned": "§cThis player is not banned!",
+    "playerNotFound": "§cPlayer §e{player} §cwas not found!",
+    "playerNotOnline": "§cPlayer §e{player} §cis not online!",
+    "noPermission": "§cYou do not have permission to use this command!",
+    "invalidDuration": "§cInvalid duration! Examples: 30m, 7d, 24h, 1y",
+    "invalidUsage": "§cInvalid usage! §7Use: §e{usage}",
+    "reloadSuccess": "§aConfiguration reloaded successfully!",
+    "reloadError": "§cError while reloading! Check the console.",
+    "invalidPunishmentDuration": "§cInvalid duration for punishment §e{key}§c!",
+    "unsupportedPunishmentType": "§cPunishment type §e{type} §cis not supported.",
+
+    "historyHeader": "§8§m----------§r §eHistory: §6{player} §8§m----------",
+    "historyEntry": " §8[§7{index}§8] §c{type} §8| §7{reason} §8| §e{date} §8| §7Mod: §f{mod}",
+    "historyEntryExpired": " §8[§7{index}§8] §8{type} §7{reason} §8| §e{date} §8(expired)",
+    "historyFooter": "§8§m----------§r §7{count} §8entries §8§m----------",
+    "historyEmpty": "§7No punishments found for §e{player}§7.",
+
+    "checkHeader": "§8§m----------§r §eActive Punishments: §6{player} §8§m----------",
+    "checkBan": " §cBAN §8| §7{reason} §8| §7ID: §e{id} §8| §7Mod: §f{mod}",
+    "checkTempBan": " §6TEMPBAN §8| §7{reason} §8| §7Remaining: §e{remaining} §8| §7Mod: §f{mod}",
+    "checkEmpty": "§7No active punishments for §e{player}§7.",
+
+    "warnSuccess": "§aPlayer §e{player} §ahas been warned. §7(ID: §e{id}§7)",
+    "warnMessage": "§6§lWarning!\n\n§7Reason: §c{reason}\n§7Warn-ID: §e{id}\n§7Network: §e{network}",
+    "warningsHeader": "§8§m----------§r §eWarnings: §6{player} §8§m----------",
+    "warningsEntry": " §8[§7{index}§8] §6WARN §8| §7{reason} §8| §e{date} §8| §7Mod: §f{mod} §8| §7ID: §e{id}",
+    "warningsFooter": "§8§m----------§r §7{count} §8warning(s) §8§m----------",
+    "noWarnings": "§7{player} has no active warnings.",
+    "clearWarningsSuccess": "§aCleared §e{count} §awarning(s) for §e{player}§a.",
+
+    "staffNotify": "§8[§6PS§8] §c{player} §7was punished by §c{mod}§7: §c{type} §8(§7{reason}§8)",
+    "punishUnknownKey": "§cUnknown punishment: §e{key}§c! Available: §7{available}",
+
+    "lookupHeader": "§8§m----------§r §eLookup: §6{player} §8§m----------",
+    "lookupUuid": " §7UUID: §f{uuid}",
+    "lookupStatus": " §7Status: §a{status}",
+    "lookupLastSeen": " §7Last seen: §e{date}",
+    "lookupKnownIps": " §7Known IPs: §f{ips}",
+    "lookupAltAccounts": " §7Linked accounts: §f{accounts}",
+    "lookupAltEntry": "   §8- §f{name}§8: {status}",
+    "lookupAltBanned": "§cBanned §8(§7{reason}§8)",
+    "lookupAltNotBanned": "§aNot banned",
+    "lookupPunishCount": " §7Total punishments: §c{count}",
+    "lookupBanHistoryHeader": " §7Recent bans§8:",
+    "lookupBanEntry": "   §8[§c{type}§8] §7{reason} §8| §e{date} §8| §7Mod: §f{mod}",
+    "lookupBanHistoryEmpty": "   §7No previous bans found.",
+    "lookupActiveBan": " §7Active ban: §c{type} §8| §7{reason} §8| §7Remaining: §e{remaining} §8| §7Mod: §f{mod}",
+    "lookupNoActiveBan": " §7Active ban: §aNone",
+    "lookupFooter": "§8§m--------------------------------------"
+  },
+
+  "punishments": {
+    "scamming": {
+      "type": "TEMPBAN",
+      "duration": "30d",
+      "reason": "Scamming"
+    },
+    "cheating": {
+      "type": "TEMPBAN",
+      "duration": "90d",
+      "reason": "Cheating / Hacking"
+    },
+    "kick": {
+      "type": "KICK",
+      "reason": "Kicked by staff"
+    },
+    "advertising": {
+      "type": "TEMPBAN",
+      "duration": "14d",
+      "reason": "Advertising"
+    },
+    "racism": {
+      "type": "BAN",
+      "reason": "Racist behaviour"
+    },
+    "network_ban": {
+      "type": "NETWORK_BAN",
+      "reason": "Network ban issued"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "id": "punishsystem",
+  "name": "PunishSystem",
+  "version": "1.0.0",
+  "description": "A professional, network-wide punishment system for Velocity proxy servers",
+  "authors": ["PunishSystem Contributors"],
+  "main": "de.punishsystem.PunishSystem"
+}
