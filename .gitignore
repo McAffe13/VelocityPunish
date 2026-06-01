@@ -1,0 +1,22 @@
+# Maven
+target/
+*.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.classpath
+*.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Credentials / Secrets
+config.json
+
+# Logs
+*.log
+logs/
