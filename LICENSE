@@ -61,7 +61,7 @@ Mozilla Public License Version 2.0
     process, and apparatus claims, in any patent Licensable by such
     Contributor that would be infringed, but for the grant of the
     License, by the making, using, selling, offering for sale, having
-    made, import, or transfer of either its Contributions or its
+    made, importing, or transferring either its Contributions or its
     Contributor Version.
 
 1.12. "Secondary License"
@@ -80,11 +80,13 @@ Mozilla Public License Version 2.0
     purposes of this definition, "control" means (a) the power, direct
     or indirect, to cause the direction or management of such entity,
     whether by contract or otherwise, or (b) ownership of more than
-    fifty percent (50%) of the outstanding shares or beneficial
-    ownership of such entity.
+    fifty percent (50%) of the outstanding shares or voting securities
+    entitled to vote for the election of directors (in the case of a
+    corporation) or other managing body (in the case of any other
+    entity).
 
 2. License Grants and Conditions
---------------------------------
+---------------------------------
 
 2.1. Grants
 
@@ -206,24 +208,25 @@ the extent required to remedy known factual inaccuracies.
 3.5. Application of Additional Terms
 
 You may choose to offer, and to charge a fee for, warranty, support,
-indemnity or liability obligations to one or more recipients of Covered
-Software. However, You may do so only on Your own behalf, and not on
-behalf of any Contributor. You must make it absolutely clear that any
-such warranty, support, indemnity, or liability obligation is offered by
-You alone, and You hereby agree to indemnify every Contributor for any
+indemnity or other liability obligations and/or rights consistent with
+this License. However, in accepting such obligations, You may act only
+on Your own behalf and on Your sole responsibility, not on behalf of any
+other Contributor. You must make it absolutely clear that any such
+warranty, support, indemnity, or liability obligation is offered by You
+alone, and You hereby agree to indemnify every Contributor for any
 liability incurred by such Contributor as a result of warranty, support,
-indemnity or liability terms You offer. You may include additional
+indemnity or other liability terms You offer. You may include additional
 disclaimers of warranty and limitations of liability specific to any
 jurisdiction.
 
 4. Inability to Comply Due to Statute or Regulation
----------------------------------------------------
+----------------------------------------------------
 
 If it is impossible for You to comply with any of the terms of this
 License with respect to some or all of the Covered Software due to
 statute, judicial order, or regulation then You must: (a) comply with
 the terms of this License to the maximum extent possible; and (b)
-describe the limitations and the code they affect. Such description must
+describe the limitations and the reasons for them. Such description must
 be placed in a text file included with all distributions of the Covered
 Software under this License. Except to the extent prohibited by statute
 or regulation, such description must be sufficiently detailed for a
@@ -239,12 +242,12 @@ Contributor are reinstated (a) provisionally, unless and until such
 Contributor explicitly and finally terminates Your grants, and (b) on an
 ongoing basis, if such Contributor fails to notify You of the
 non-compliance by some reasonable means prior to 60 days after You have
-come back into compliance. Moreover, Your grants from a particular
-Contributor are reinstated on an ongoing basis if such Contributor
-notifies You of the non-compliance by some reasonable means, this is the
-first time You have received notice of non-compliance with this License
-from such Contributor, and You become compliant prior to 30 days after
-Your receipt of the notice.
+come into compliance. Moreover, Your grants from a particular Contributor
+are reinstated on an ongoing basis if such Contributor notifies You of
+the non-compliance by some reasonable means, this is the first time You
+have received notice of non-compliance with this License from such
+Contributor, and You become compliant prior to 30 days after Your
+receipt of the notice.
 
 5.2. If You initiate litigation against any entity by asserting a patent
 infringement claim (excluding declaratory judgment actions,
@@ -258,47 +261,37 @@ end user license agreements (excluding distributors and resellers) which
 have been validly granted by You or Your distributors under this License
 prior to termination shall survive termination.
 
-************************************************************************
-*                                                                      *
-*  6. Disclaimer of Warranty                                           *
-*  -------------------------                                           *
-*                                                                      *
-*  Covered Software is provided under this License on an "as is"       *
-*  basis, without warranty of any kind, either expressed, implied, or  *
-*  statutory, including, without limitation, warranties that the       *
-*  Covered Software is free of defects, merchantable, fit for a        *
-*  particular purpose or non-infringing. The entire risk as to the     *
-*  quality and performance of the Covered Software is with You.        *
-*  Should any Covered Software prove defective in any respect, You     *
-*  (not any Contributor) assume the cost of any necessary servicing,   *
-*  repair, or correction. This disclaimer of warranty constitutes an   *
-*  essential part of this License. No use of any Covered Software is   *
-*  authorized under this License except under this disclaimer.         *
-*                                                                      *
-************************************************************************
+6. Disclaimer of Warranty
+--------------------------
 
-************************************************************************
-*                                                                      *
-*  7. Limitation of Liability                                          *
-*  --------------------------                                          *
-*                                                                      *
-*  Under no circumstances and under no legal theory, whether tort      *
-*  (including negligence), contract, or otherwise, shall any           *
-*  Contributor, or anyone who distributes Covered Software as          *
-*  permitted above, be liable to You for any direct, indirect,         *
-*  special, incidental, or consequential damages of any character      *
-*  including, without limitation, damages for lost profits, loss of    *
-*  goodwill, work stoppage, computer failure or malfunction, or any    *
-*  and all other commercial damages or losses, even if such party      *
-*  shall have been informed of the possibility of such damages. This   *
-*  limitation of liability shall not apply to liability for death or   *
-*  personal injury resulting from such party's negligence to the       *
-*  extent applicable law prohibits such limitation. Some               *
-*  jurisdictions do not allow the exclusion or limitation of           *
-*  incidental or consequential damages, so this exclusion and          *
-*  limitation may not apply to You.                                    *
-*                                                                      *
-************************************************************************
+Covered Software is provided under this License on an "as is" basis,
+without warranty of any kind, either expressed, implied, or statutory,
+including, without limitation, warranties that the Covered Software is
+free of defects, merchantable, fit for a particular purpose or
+non-infringing. The entire risk as to the quality and performance of the
+Covered Software is with You. Should any Covered Software prove
+defective in any respect, You (not any Contributor) assume the cost of
+any necessary servicing, repair, or corrections. This disclaimer of
+warranty constitutes an essential part of this License. No use of any
+Covered Software is authorized under this License except under this
+Disclaimer.
+
+7. Limitation of Liability
+---------------------------
+
+Under no circumstances and under no legal theory, whether tort
+(including negligence), contract, or otherwise, shall any Contributor,
+or anyone who distributes Covered Software as permitted above, be liable
+to You for any direct, indirect, special, incidental, or consequential
+damages of any character including, without limitation, damages for lost
+profits, loss of goodwill, work stoppage, computer failure or
+malfunction, or any and all other commercial damages or losses, even if
+such party shall have been advised of the possibility of such damages.
+This limitation of liability shall not apply to liability for death or
+personal injury resulting from such party's negligence to the extent
+applicable law prohibits such limitation. Some jurisdictions do not allow
+the exclusion or limitation of incidental or consequential damages, so
+this exclusion and limitation may not apply to You.
 
 8. Litigation
 -------------
@@ -321,7 +314,7 @@ that the language of a contract shall be construed against the drafter
 shall not be used to construe this License against a Contributor.
 
 10. Versions of the License
----------------------------
+----------------------------
 
 10.1. New Versions
 
@@ -340,10 +333,12 @@ steward.
 10.3. Modified Versions
 
 If you create software not governed by this License, and you want to
-create a new license for such software, you may create and use a
-modified version of this License if you rename the license and remove
-any references to the name of the license steward (except to note that
-such modified license differs from this License).
+create a new license for such software, you may create and distribute a
+modified version of this License but You must rename Your license and
+remove any references to the name "Mozilla" from the license (except to
+note that such license differs from this License) and must remove any
+references to "Mozilla Foundation" (except to note that Your license
+differs from this License).
 
 10.4. Distributing Source Code Form that is Incompatible With Secondary
 Licenses
