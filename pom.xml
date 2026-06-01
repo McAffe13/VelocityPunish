@@ -6,7 +6,7 @@
 
     <groupId>de.punishsystem</groupId>
     <artifactId>punishsystem</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
     <name>PunishSystem</name>
     <description>A professional, network-wide punishment system for Velocity proxy servers</description>
