@@ -17,7 +17,8 @@
     "websiteUrl": "your-server.net",
     "unbanUrl": "your-server.net/appeal",
     "discordUrl": "discord.your-server.net",
-    "unbanMethod": "discord"
+    "unbanMethod": "discord",
+    "showIpsInLookup": true
   },
 
   "permissions": {

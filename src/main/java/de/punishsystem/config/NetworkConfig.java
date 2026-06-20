@@ -9,6 +9,7 @@ public class NetworkConfig {
     private String unbanUrl = "your-server.net/appeal";
     private String discordUrl = "discord.your-server.net";
     private String unbanMethod = "discord";
+    private boolean showIpsInLookup = true;
 
     public String getName() { return name; }
     public String getNameFormatted() { return nameFormatted; }
@@ -17,4 +18,5 @@ public class NetworkConfig {
     public String getUnbanUrl() { return unbanUrl; }
     public String getDiscordUrl() { return discordUrl; }
     public String getUnbanMethod() { return unbanMethod; }
+    public boolean isShowIpsInLookup() { return showIpsInLookup; }
 }

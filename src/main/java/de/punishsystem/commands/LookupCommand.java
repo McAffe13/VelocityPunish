@@ -123,9 +123,11 @@ public class LookupCommand implements SimpleCommand {
         }
 
         // Known IPs
-        String ipsStr = ips.isEmpty() ? "§7None" : String.join("§7, §f", ips);
-        source.sendMessage(MessageUtils.parse(
-                msg.getLookupKnownIps(), Map.of("ips", ipsStr)));
+        if (plugin.getConfigManager().getNetwork().isShowIpsInLookup()) {
+            String ipsStr = ips.isEmpty() ? "§7None" : String.join("§7, §f", ips);
+            source.sendMessage(MessageUtils.parse(
+                    msg.getLookupKnownIps(), Map.of("ips", ipsStr)));
+        }
 
         // Linked accounts with ban status
         if (altBans.isEmpty()) {

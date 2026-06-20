@@ -44,7 +44,7 @@ import java.nio.file.Path;
 public class PunishSystem {
 
     // Auf https://bstats.org registrieren und die ID hier eintragen
-    private static final int BSTATS_PLUGIN_ID = 31736;
+    private static final int BSTATS_PLUGIN_ID = 31751;
 
     private final ProxyServer server;
     private final Logger logger;
@@ -74,6 +74,21 @@ public class PunishSystem {
         logger.info("║          by mcaffe13               ║");
         logger.info("╚════════════════════════════════════╝");
 
+        // bStats kann gelegentlich mit HTTP 429 (Rate-Limit) antworten.
+        // Die bStats-Library loggt dann meist eine Stacktrace/Warnung.
+        // Um den Proxy-Output sauber zu halten, unterdrücken wir (best-effort)
+        // das Logging dieser bStats-Pakete während der Initialisierung.
+        suppressBStatsLoggingDuring(() -> {
+            try {
+                metricsFactory.make(this, BSTATS_PLUGIN_ID);
+                logger.info("bStats metrics initialized (Plugin-ID: {}).", BSTATS_PLUGIN_ID);
+            } catch (Throwable t) {
+                // bStats soll den Start nicht blockieren.
+                logger.debug("bStats initialization failed (non-critical): {}", t.toString());
+            }
+        });
+
+
         try {
             LabyModProtocolService.initialize(this, this.server, this.logger);
 
@@ -97,8 +112,6 @@ public class PunishSystem {
 
             registerListeners();
             registerCommands();
-
-            metricsFactory.make(this, BSTATS_PLUGIN_ID);
 
             logger.info("PunishSystem started successfully.");
         } catch (Exception e) {
@@ -158,4 +171,74 @@ public class PunishSystem {
     public PunishmentManager getPunishmentManager() { return punishmentManager; }
     public VpnChecker getVpnChecker() { return vpnChecker; }
     public WebhookManager getWebhookManager() { return webhookManager; }
+
+    private void suppressBStatsLoggingDuring(Runnable runnable) {
+        // Best-effort: Wenn der Proxy Logback nutzt, können wir für den kurzen Zeitraum
+        // das Logging der bStats-Klassen runtersetzen, ohne bStats selbst abzuschalten.
+        try {
+            Class<?> loggerFactoryClass = Class.forName("ch.qos.logback.classic.LoggerContext");
+            // Falls Logback nicht vorhanden ist, Class.forName wirft eine Exception und wir gehen ins fallback.
+            Object loggerContext = Class.forName("org.slf4j.LoggerFactory")
+                    .getMethod("getILoggerFactory")
+                    .invoke(null);
+
+            if (loggerContext != null && loggerContext.getClass().getName().equals("ch.qos.logback.classic.LoggerContext")) {
+                Object chLogger = loggerContext.getClass().getMethod("getLogger", String.class)
+                        .invoke(loggerContext, "org.bstats");
+                Object chLogger2 = loggerContext.getClass().getMethod("getLogger", String.class)
+                        .invoke(loggerContext, "com.velocitypowered.proxy.bstats");
+
+                Class<?> levelClass = Class.forName("ch.qos.logback.classic.Level");
+                Object previousLevel1 = null;
+                Object previousLevel2 = null;
+                try {
+                    previousLevel1 = chLogger.getClass().getMethod("getLevel").invoke(chLogger);
+                } catch (Throwable ignored) {
+                }
+                try {
+                    previousLevel2 = chLogger2.getClass().getMethod("getLevel").invoke(chLogger2);
+                } catch (Throwable ignored) {
+                }
+
+                Object errorLevel = levelClass.getField("ERROR").get(null);
+
+                try {
+                    if (chLogger != null) {
+                        chLogger.getClass().getMethod("setLevel", levelClass).invoke(chLogger, errorLevel);
+                    }
+                } catch (Throwable ignored) {
+                }
+                try {
+                    if (chLogger2 != null) {
+                        chLogger2.getClass().getMethod("setLevel", levelClass).invoke(chLogger2, errorLevel);
+                    }
+                } catch (Throwable ignored) {
+                }
+
+                try {
+                    runnable.run();
+                } finally {
+                    // Restore
+                    try {
+                        if (chLogger != null && previousLevel1 != null) {
+                            chLogger.getClass().getMethod("setLevel", levelClass).invoke(chLogger, previousLevel1);
+                        }
+                    } catch (Throwable ignored) {
+                    }
+                    try {
+                        if (chLogger2 != null && previousLevel2 != null) {
+                            chLogger2.getClass().getMethod("setLevel", levelClass).invoke(chLogger2, previousLevel2);
+                        }
+                    } catch (Throwable ignored) {
+                    }
+                }
+                return;
+            }
+        } catch (Throwable ignored) {
+            // Fallback: einfach normal ausführen.
+        }
+
+        runnable.run();
+    }
 }
+
